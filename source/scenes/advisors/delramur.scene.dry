@@ -11,7 +11,6 @@ Delramur Gyldholm, a former farmboy and now leading figure amongst the oft forgo
 
 - @rural_campaign
 - @blue_collar
-- @scandi
 - @root: Return to main
 
 @rural_campaign
@@ -31,13 +30,3 @@ unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +
 on-arrival: advisor_action_timer = 6; workers_spd += 4*(1-dissent); new_middle_spd += 4*(1-dissent);
 
 We have increased our organizing among blue-collar workers.
-
-@scandi
-title: Learn from the Scandinavian socialists.
-subtitle: -1 resources
-choose-if: resources >= 1
-unavailable-subtitle: Not enough resources.
-on-arrival: reformist_strength += 8; wtb_support += 1; resources -= 1; moderate_plan_support += 1
-
-The programs of the Nordic socialists involve active government intervention in the economy. We can learn from their economic strategies, and how they moved beyond their working-class base to attract a broader set of constituents.
-
