@@ -460,6 +460,18 @@ tags: left_advisor
 
 Max Seydewitz is now an advisor.
 
+@add_arcanestomper
+title: Arcanestomper
+subtitle: Arcanestomper is a longtime organizer and leader within the CPA.
+is-card: true
+card-image: img/portraits/Arcanestomper.png
+tags: left_advisor
+view-if: arcanestomper_advisor = 0 and n_advisors < 3 and left_resign = 0
+on-arrival: arcanestomper_advisor = 1; n_advisors += 1
+go-to: advisor_menu
+
+Arcanestomper is now an advisor.
+
 
 # labor
 
