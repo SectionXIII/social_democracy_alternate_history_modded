@@ -186,6 +186,15 @@ go-to: rm_main
 
 Arcanestomper has been removed as an advisor. The Castle faction disapproves.
 
+@remove_azel
+title: Remove Azel Strongler
+view-if: azel_advisor = 1
+tags: remove_advisor
+on-arrival: azel_advisor = 0; left_dissent += 3; n_advisors -= 1
+go-to: rm_main
+
+Azel Strongler has been removed as an advisor. The Castle faction disapproves.
+
 
 
 # neorevisionists
@@ -480,6 +489,18 @@ on-arrival: arcanestomper_advisor = 1; n_advisors += 1; left_strength += 5
 go-to: advisor_menu
 
 Arcanestomper is now an advisor.
+
+@add_azel
+title: Azel Strongler
+subtitle: Azel Strongler is a man with a storied past, chequered present, and bright future.
+is-card: true
+card-image: img/portraits/Azel.png
+tags: left_advisor
+view-if: azel_advisor = 0 and n_advisors < 3 and left_split = 0
+on-arrival: azel_advisor = 1; n_advisors += 1; left_strength += 5
+go-to: advisor_menu
+
+Azel Strongler is now an advisor.
 
 
 # labor
