@@ -26,7 +26,7 @@ How did he do that???
 
 @castle_doctrine
 title: Castle Doctrine.
-subtitle: The Caslte must not fall.
+subtitle: The Castle must not fall.
 choose-if: advisor_action_timer <= 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 on-arrival: advisor_action_timer = 6;
