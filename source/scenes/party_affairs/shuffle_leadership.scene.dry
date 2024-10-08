@@ -187,13 +187,13 @@ go-to: rm_main
 Arcanestomper has been removed as an advisor. The Castle faction disapproves.
 
 @remove_azel
-title: Remove Azel Strongler
+title: Remove Azel Amalling
 view-if: azel_advisor = 1
 tags: remove_advisor
 on-arrival: azel_advisor = 0; left_dissent += 3; n_advisors -= 1
 go-to: rm_main
 
-Azel Strongler has been removed as an advisor. The Castle faction disapproves.
+Azel Amalling has been removed as an advisor. The Castle faction disapproves.
 
 
 
@@ -225,6 +225,15 @@ on-arrival: schumacher_advisor = 0; neorevisionist_dissent += 3; n_advisors -= 1
 go-to: rm_main
 
 Schumacher has been removed as an advisor. The Neorevisionist faction disapproves.
+
+@remove_section
+title: Remove Section
+view-if: section_advisor = 1
+tags: remove_advisor
+on-arrival: section_advisor = 0; neorevisionist_dissent += 3; n_advisors -= 1
+go-to: rm_main
+
+Section has been removed as an advisor. The Neocastlist faction disapproves.
 
 
 ## nonfactional
@@ -491,8 +500,8 @@ go-to: advisor_menu
 Arcanestomper is now an advisor.
 
 @add_azel
-title: Azel Strongler
-subtitle: Azel Strongler is a man with a storied past, chequered present, and bright future.
+title: Azel Amalling
+subtitle: Azel Amalling is a man with a storied past, chequered present, and bright future.
 is-card: true
 card-image: img/portraits/Azel.png
 tags: left_advisor
@@ -500,7 +509,7 @@ view-if: azel_advisor = 0 and n_advisors < 3 and left_split = 0
 on-arrival: azel_advisor = 1; n_advisors += 1; left_strength += 5
 go-to: advisor_menu
 
-Azel Strongler is now an advisor.
+Azel Amalling is now an advisor.
 
 
 # labor
@@ -579,6 +588,18 @@ go-to: advisor_menu
 tags: neorev_advisor
 
 Julius Leber is now an advisor.
+
+@add_section
+title: Section Huvisgalch
+subtitle: Section Huvisgalch is a former member of the MPRP and a true man of the people.
+is-card: true
+card-image: img/portraits/Section.png
+view-if: section_advisor = 0 and n_advisors < 3
+on-arrival: section_advisor = 1; n_advisors += 1; neorevisionist_strength += 10
+go-to: advisor_menu
+tags: neorev_advisor
+
+Section Huvisgalch is now an advisor.
 
 # Nonfactional advisors
 

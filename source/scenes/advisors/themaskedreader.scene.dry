@@ -1,13 +1,13 @@
-title: Azel Amalling
+title: The Masked Reader
 is-pinned-card: true
 tags: advisor, left
-card-image: img/portraits/Azel.png
-view-if: azel_advisor = 1
+card-image: img/portraits/TMR.png
+view-if: tmr_advisor = 1
 new-page: true 
 
-= Azel Amalling
+= The Masked Reader
 
-Azel Amalling is a strange man, having come barging into the office of the SPD after the KPD chased him off as a 'social fascist', claiming he has future knowledge. Whatever the case, he is an exceedingly efficient organizer and a shining example of the Protestant work ethic!
+Nobody quite knows the identity of the American woman only known as 'The Masked Reader'. She simply showed up at rallies and meetings, and nobody has quiet worked up the courage to tell her no. She's a very devout reader, if nothing else.
 
 - @white_collar
 - @union_unity
