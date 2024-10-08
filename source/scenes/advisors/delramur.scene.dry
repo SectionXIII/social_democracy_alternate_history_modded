@@ -24,7 +24,7 @@ on-arrival: advisor_action_timer = 6; rural_spd += 5*(1-dissent); peoples_party_
 We have increased our campaigning among farmers and the rural populace.
 
 @blue_collar
-title: Organizing blue-collar workers
+title: Organizing blue-collar workers.
 subtitle: Improve our standing among the new wkilled blue collar workers.
 choose-if: advisor_action_timer <= 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] 
@@ -33,6 +33,7 @@ on-arrival: advisor_action_timer = 6; workers_spd += 4*(1-dissent); new_middle_s
 We have increased our organizing among blue-collar workers.
 
 @scandi
+title: Learn from the Scandinavian socialists.
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
