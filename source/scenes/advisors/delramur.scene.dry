@@ -1,37 +1,36 @@
 title: Delramur
 is-pinned-card: true
 tags: advisor, labor
-card-image: img/portraits/Arcanestomper.png
-view-if: arcanestomper_advisor = 1
+card-image: img/portraits/Delramur.png
+view-if: delramur_advisor = 1
 new-page: true 
 
 = Delramur Gyldholm
 
 Delramur Gyldholm, a former farmboy and now leading figure amongst the oft forgotten skilled blue collar trade unions, is solid figure of support amongst the Labor faction.
 
-- @resolve_issues
-- @castle_doctrine
+- @rural_campaign
+- @blue_collar
 - @moderate_economic_plan
 - @root: Return to main
 
-@resolve_issues
-title: Arcanestomper sets about fixing issues.
-subtitle: So many issues.
+@rural_campaign
+title: Rural Campaign
+subtitle: Try to campaign among the rural populace.
+choose-if: advisor_action_timer == 0 and rural_policy > 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if rural_policy == 0 : We have not enacted any rural policies. ?]
+on-arrival: advisor_action_timer = 6; rural_spd += 5*(1-dissent); peoples_party_support += 1
+
+We have increased our campaigning among farmers and the rural populace.
+
+@blue_collar
+title: Organizing blue-collar workers
+subtitle: Improve our standing among the new wkilled blue collar workers.
 choose-if: advisor_action_timer <= 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] 
-on-arrival: advisor_action_timer = 6; left_dissent -= 5; labor_dissent -= 10; center_dissent -= 10; reformist_dissent -= 10; neorevisionist_dissent -= 5; resources += dues
+on-arrival: advisor_action_timer = 6; workers_spd += 4*(1-dissent); new_middle_spd += 4*(1-dissent);
 
-How did he do that???
-
-@castle_doctrine
-title: Castle Doctrine.
-subtitle: The Castle must not fall.
-choose-if: advisor_action_timer <= 0
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-on-arrival: advisor_action_timer = 6;
-go-to: peoples_party_campaigning
-
-We must not let the Castle fall!
+We have increased our organizing among blue-collar workers.
 
 @moderate_economic_plan
 title: Support the reformist economic plan
