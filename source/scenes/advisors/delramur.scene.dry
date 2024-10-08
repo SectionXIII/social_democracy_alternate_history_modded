@@ -24,7 +24,7 @@ We have increased our campaigning among farmers and the rural populace.
 
 @blue_collar
 title: Organizing blue-collar workers.
-subtitle: Improve our standing among the new wkilled blue collar workers.
+subtitle: Improve our standing among the new skilled blue collar workers.
 choose-if: advisor_action_timer <= 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] 
 on-arrival: advisor_action_timer = 6; workers_spd += 4*(1-dissent); new_middle_spd += 4*(1-dissent);
