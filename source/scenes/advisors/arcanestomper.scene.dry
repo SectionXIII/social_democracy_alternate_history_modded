@@ -9,29 +9,30 @@ new-page: true
 
 Arcanestomper is a walking, breathing spreadsheet from Georgia. He has many connections to revolutionary movements across the world.
 
-- @white_collar
-- @union_unity
+- @resolve_issues
+- @castle_doctrine
 - @crisis
 - @moderate_economic_plan
 - @root: Return to main
 
-@white_collar
-title: Organizing white-collar workers
-subtitle: Improve our standing among the new middle class.
+@resolve_issues
+title: Arcanestomper sets about fixing issues.
+subtitle: So many issues.
 choose-if: advisor_action_timer <= 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] 
-on-arrival: advisor_action_timer = 6; new_middle_spd += 6*(1-dissent);
+on-arrival: advisor_action_timer = 6; left_dissent -= 5; labor_dissent -= 10; center_dissent -= 10; reformist_dissent -= 10; neorevisionist_dissent -= 5; resources += dues
 
-We have increased our organizing among white-collar workers.
+How did he do that???
 
-@union_unity
-title: Union-party coordination
-subtitle: Reduce dissent among the unions.
+@castle_doctrine
+title: Castle Doctrine.
+subtitle: The Caslte must not fall.
 choose-if: advisor_action_timer <= 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-on-arrival: advisor_action_timer = 6; labor_dissent -= 10;
+on-arrival: advisor_action_timer = 6;
+go-to: peoples_party_campaigning
 
-We have reduced tensions with the Labor faction.
+We must not let the Castle fall!
 
 @crisis
 title: Addressing the economic crisis
