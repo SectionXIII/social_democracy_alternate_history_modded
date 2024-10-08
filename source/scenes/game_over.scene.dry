@@ -141,7 +141,7 @@ Adolf Hitler has taken power in Germany. However, we have rallied the democratic
 
 @no_hitler
 view-if: chancellor != "Hitler" and president != "Hitler" and president != "Göring" and chancellor_party != "NSDAP"
-title: Hitler does not yet control Germany...
+title: Nara does not yet control Germany...
 tags: endings
 go-to: eg_menu
 
