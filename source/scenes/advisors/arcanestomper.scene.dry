@@ -2,7 +2,7 @@ title: Arcanestomper
 is-pinned-card: true
 tags: advisor, left
 card-image: img/portraits/Arcanestomper.png
-view-if: aufhauser_advisor = 1
+view-if: arcanestomper_advisor = 1
 new-page: true 
 
 = Arcanestomper
