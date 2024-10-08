@@ -139,6 +139,24 @@ go-to: rm_main
 
 Woytinsky has been removed as an advisor. The Labor faction disapproves.
 
+@remove_spore
+title: Remove Spore
+view-if: spore_advisor = 1
+tags: remove_advisor
+on-arrival: spore_advisor = 0; labor_dissent += 3; n_advisors -= 1
+go-to: rm_main
+
+Spore has been removed as an advisor. The Labor faction disapproves.
+
+@remove_delramur
+title: Remove Delramur
+view-if: delramur_advisor = 1
+tags: remove_advisor
+on-arrival: delramur_advisor = 0; labor_dissent += 3; n_advisors -= 1
+go-to: rm_main
+
+Delramur has been removed as an advisor. The Labor faction disapproves.
+
 # left
 
 @remove_levi
@@ -242,7 +260,7 @@ tags: remove_advisor
 on-arrival: section_advisor = 0; neorevisionist_dissent += 3; n_advisors -= 1
 go-to: rm_main
 
-Section has been removed as an advisor. The Neocastlist faction disapproves.
+Section has been removed as an advisor. The Administrative faction disapproves.
 
 
 ## nonfactional
@@ -288,7 +306,14 @@ go-to: rm_main
 
 Radbruch has been removed as an advisor. 
 
+@remove_sprout
+title: Remove Sprout
+view-if: sprout_advisor = 1
+tags: remove_advisor
+on-arrival: sprout_advisor = 0; n_advisors -= 1
+go-to: rm_main
 
+Sprout has been removed as an advisor.
 
 
 
@@ -571,6 +596,30 @@ go-to: advisor_menu
 
 Wladimir Woytinsky is now an advisor.
 
+@add_spore
+title: Spore Theodore Red
+subtitle: Spore Theodore Red is a former bushranger, Labor MP, and leading designer of the newly created Danish Lego wooden toy sets.
+is-card: true
+card-image: img/portraits/Spore.jpg
+tags: labor_advisor
+view-if: spore_advisor = 0 and n_advisors < 3 and unions_independent = 0
+on-arrival: spore_advisor = 1; n_advisors += 1; labor_strength += 3
+go-to: advisor_menu
+
+Wladimir Woytinsky is now an advisor.
+
+@add_delramur
+title: Delramur Gyldholm
+subtitle: Delramur Gyldholm is a Danish Socialdemokratiet that has since emigrated to Germany, and become a leading figure amongst skilled blue collar worker unions.
+is-card: true
+card-image: img/portraits/Delramur.jpg
+tags: labor_advisor
+view-if: delramur_advisor = 0 and n_advisors < 3 and unions_independent = 0
+on-arrival: delramur_advisor = 1; n_advisors += 1; labor_strength += 3
+go-to: advisor_menu
+
+Delramur Gyldholm is now an advisor.
+
 
 # neorevisionist leaders
 
@@ -675,5 +724,17 @@ go-to: advisor_menu
 tags: nonfactional_advisor
 
 Friedrich Stampfer is now an advisor.
+
+@add_sprout
+title: Spout Nachtingale
+subtitle: Sprout Nachtingale is an enigma. A devoutly Protestant cafe worker, conservative, and yet... she would rather work with us than with the Zentrum. Confusing.
+is-card: true
+card-image: img/portraits/Sprout.png
+view-if: sprout_advisor = 0 and n_advisors < 3
+on-arrival: sprout_advisor = 1; n_advisors += 1
+go-to: advisor_menu
+tags: nonfactional_advisor
+
+Sprout Nachtingale is now an advisor.
 
 
