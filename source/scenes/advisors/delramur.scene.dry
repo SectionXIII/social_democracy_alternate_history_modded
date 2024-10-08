@@ -1,7 +1,7 @@
 title: Delramur
 is-pinned-card: true
 tags: advisor, labor
-card-image: img/portraits/Delramur.png
+card-image: img/portraits/Delramur.jpg
 view-if: delramur_advisor = 1
 new-page: true 
 
