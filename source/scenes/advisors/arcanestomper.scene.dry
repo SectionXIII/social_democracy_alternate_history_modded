@@ -1,13 +1,13 @@
-title: Siegfried Aufhäuser
+title: Arcanestomper
 is-pinned-card: true
-tags: advisor, reformist
-card-image: img/portraits/AufhäuserSiegfried.jpg
+tags: advisor, left
+card-image: img/portraits/Arcanestomper.png
 view-if: aufhauser_advisor = 1
 new-page: true 
 
-= Siegfried Aufhäuser
+= Arcanestomper
 
-Aufhäuser is a leader of the AfA-Bund, the federation of socialist white-collar trade unions.
+Arcanestomper is a walking, breathing spreadsheet from Georgia. He has many connections to revolutionary movements across the world.
 
 - @white_collar
 - @union_unity
