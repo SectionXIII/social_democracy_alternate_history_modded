@@ -195,6 +195,15 @@ go-to: rm_main
 
 Azel Amalling has been removed as an advisor. The Castle faction disapproves.
 
+@remove_tmr
+title: Remove The Masked Reader
+view-if: tmr_advisor = 1
+tags: remove_advisor
+on-arrival: tmr_advisor = 0; left_dissent += 3; n_advisors -= 1
+go-to: rm_main
+
+Azel Amalling has been removed as an advisor. The Inn faction disapproves.
+
 
 
 # neorevisionists
@@ -510,6 +519,18 @@ on-arrival: azel_advisor = 1; n_advisors += 1; left_strength += 5
 go-to: advisor_menu
 
 Azel Amalling is now an advisor.
+
+@add_tmr
+title: The Masked Reader
+subtitle: The single best analyst and an advocate of trans rights, the Masked Reader is a great addition.
+is-card: true
+card-image: img/portraits/TMR.png
+tags: left_advisor
+view-if: tmr_advisor = 0 and n_advisors < 3 and left_split = 0
+on-arrival: tmr_advisor = 1; n_advisors += 1; left_strength += 5
+go-to: advisor_menu
+
+The Masked Reader is now an advisor.
 
 
 # labor
