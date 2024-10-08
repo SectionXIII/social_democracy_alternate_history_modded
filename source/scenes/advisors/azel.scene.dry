@@ -1,13 +1,13 @@
-title: Siegfried Aufhäuser
+title: Azel Strongler
 is-pinned-card: true
-tags: advisor, reformist
-card-image: img/portraits/AufhäuserSiegfried.jpg
-view-if: aufhauser_advisor = 1
+tags: advisor, left
+card-image: img/portraits/Azel.png
+view-if: azel_advisor = 1
 new-page: true 
 
-= Siegfried Aufhäuser
+= Azel Strongler
 
-Aufhäuser is a leader of the AfA-Bund, the federation of socialist white-collar trade unions.
+Azel Strongler is a strange man, having come barging into the office of the SPD after the KPD chased him off as a 'social fascist', claiming he has future knowledge. Whatever the case, he is an exceedingly efficient organizer and a shining example of the Protestant work ethic!
 
 - @white_collar
 - @union_unity
