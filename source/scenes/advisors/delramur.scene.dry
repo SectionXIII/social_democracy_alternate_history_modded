@@ -11,7 +11,7 @@ Delramur Gyldholm, a former farmboy and now leading figure amongst the oft forgo
 
 - @rural_campaign
 - @blue_collar
-- @moderate_economic_plan
+- @scandi
 - @root: Return to main
 
 @rural_campaign
@@ -32,11 +32,11 @@ on-arrival: advisor_action_timer = 6; workers_spd += 4*(1-dissent); new_middle_s
 
 We have increased our organizing among blue-collar workers.
 
-@moderate_economic_plan
-title: Support the reformist economic plan
-subtitle: Arcanestomper can also support a moderate economic plan.
-choose-if: advisor_action_timer = 0 and moderate_plan_adopted = 0 and black_thursday_seen = 1
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] [? if moderate_economic_plan = 0 : We have already adopted the reformist economic plan. ?] [? if black_thursday_seen == 0 : We are not currently in an economic crisis. ?]
-on-arrival: advisor_action_timer = 6
-go-to: crisis_program.support_moderate
+@scandi
+subtitle: -1 resources
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: reformist_strength += 8; wtb_support += 1; resources -= 1; moderate_plan_support += 1
+
+The programs of the Nordic socialists involve active government intervention in the economy. We can learn from their economic strategies, and how they moved beyond their working-class base to attract a broader set of constituents.
 
