@@ -202,7 +202,7 @@ tags: remove_advisor
 on-arrival: tmr_advisor = 0; left_dissent += 3; n_advisors -= 1
 go-to: rm_main
 
-Azel Amaling has been removed as an advisor. The Inn faction disapproves.
+The Masked Reader has been removed as an advisor. The Inn faction disapproves.
 
 
 
