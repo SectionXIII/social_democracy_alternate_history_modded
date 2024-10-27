@@ -379,3 +379,33 @@ Minor changes:
 
 Backend changes:
 - a bunch of dendrynexus updates for event images (called `face-image` in the code).
+
+
+v0.18.1 - Cabinets, protecting rallies, mod loading, difficulties
+
+Changes:
+
+- Changing some of the default names and party assignments for the Weimar Coalition, so that you don't get DVP ministers.
+- There is an option to use both the police and Reichsbanner to protect rallies, after using the Prussian police to train the Reichsbanner.
+- When loading a mod, the game title and author are set to the title and author of the mod.
+- Conciliators are no longer disabled in historical mode.
+- There is a new hidden variable, "strife", that increases when there is streetfighting or other conflict. It doesn't have a lot of uses yet...
+
+
+v0.19 - Labor rights and unemployment insurance, more gradual support changes
+
+Major changes:
+- New government affairs card: Labor Rights
+- The unemployment insurance crisis can be handled preemptively using Labor Rights. In general, some of the flow around unemployment insurance has been changed.
+- New advisor: Rudolf Wissell (labor)
+- Party support changes are now more gradual, happening monthly instead of always at the start of the year. There are some tweaks to party support, with more support from middle-class and rural demographics flowing from Others and the DVP to the NSDAP to better account for historical election results.
+
+Minor changes:
+- Some bug fixes and many minor tweaks.
+
+v0.19.1 - Bug fixes
+
+Changes:
+- Fixed return to hand for Labor Affairs
+- Fixed an issue with unemployment insurance and President Hindenburg/Braun
+- Removed ending slides about unemployment when the game ends before 1930

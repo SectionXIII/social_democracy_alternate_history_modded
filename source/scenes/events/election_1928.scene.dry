@@ -150,6 +150,8 @@ Q.foreign_goal_completed = 0;
 Q.interior_goal_completed = 0;
 Q.reichswehr_goal_completed = 0;
 
+Q.strike_term_seen = 0;
+
 Q.z_minus_bvp_r = Q.z_r - 3;
 
 var election_result = {'date': new Date(Q.year, Q.month - 1)};
@@ -399,7 +401,7 @@ There are enough votes for the Nazis and the DNVP to form a coalition. [+ nsdap_
 @far_right_win
 on-arrival: chancellor = nsdap_leader; chancellor_party = "NSDAP"
 
-[? if president == "Hindenburg" : President Hindenburg's camarilla ?][? if president == "Braun" : President Braun somehow ?] has decided that [+ nsdap_leader +] must be chancellor [? if president == "Hindenburg": , and the aging president accepts their recommendations. ?][? if president == "Braun" :  because it is what the constitution would stipulate. ?]
+[? if president == "Hindenburg" : President Hindenburg's camarilla ?][? if president == "Braun" : President Braun somehow ?] has decided that [+ nsdap_leader +] must be chancellor [? if president == "Hindenburg": , and the aging president accepts their recommendations. ?][? if president == "Braun" : because it is what the constitution would stipulate. ?]
 
 - @hitler_takes_power: What do we do now?
 
@@ -833,9 +835,9 @@ Their numbers are bolstered by the many government workers who are against the p
 @emergency_no_confidence
 title: The Nazis immediately call a no-confidence vote against us...
 view-if: far_right_coalition < 45
-on-arrival: z_no_confidence = 1 if z_relation < 45; kpd_no_confidence = 1 if kpd_relation < 45; others_no_confidence = 1 if (z_relation + dvp_relation)/2 < 45; sa_strength += 200; sh_strength += 200; no_confidence_votes = nsdap_r + dnvp_r; no_confidence_votes += z_r if z_no_confidence; no_confidence_votes += kpd_r if kpd_no_confidence; no_confidence_votes += other_r if other_no_confidence; no_confidence_succeeds = 1 if no_confidence_votes > 50
+on-arrival: z_no_confidence = 1 if z_relation < 45; kpd_no_confidence = 1 if kpd_relation < 45; other_no_confidence = 1 if (z_relation + dvp_relation)/2 < 45; dvp_no_confidence = 1 if dvp_relation < 45; sa_strength += 200; sh_strength += 200; no_confidence_votes = nsdap_r + dnvp_r; no_confidence_votes += z_r if z_no_confidence; no_confidence_votes += dvp_r if dvp_no_confidence; no_confidence_votes += kpd_r if kpd_no_confidence; no_confidence_votes += other_r if other_no_confidence; no_confidence_succeeds = 1 if no_confidence_votes > 50
 
-The NSDAP and DNVP will vote against us, of course. The other parties vote their conscience.
+The NSDAP and DNVP will vote against us, of course. The other parties vote their conscience. [? if z_no_confidence: The Center Party is voting against us. ?] [? if kpd_no_confidence: The KPD votes against us. ?] [? if other_no_confidence: The assortment of minor parties are voting against us. ?]
 
 In total, [+ no_confidence_votes +]% of the Reichstag is against us. [? if no_confidence_succeeds : We have lost the vote of no confidence. ?]
 
@@ -899,7 +901,7 @@ We have won the vote of no confidence, and are currently ruling under an SPD min
 title: We can form a Weimar Coalition.
 subtitle: SPD + Z + DDP [? if sapd_formed and kpd_r >= 30 : + SAPD toleration ?] ([+ weimar_coalition +]%)
 view-if: weimar_coalition >= 50
-on-arrival: leverage += 5; leverage += 5 if z_party_leader == "Joos"; in_weimar_coalition = 1; spd_in_government = 1; in_popular_front = 0; in_left_front = 0
+on-arrival: leverage += 5; leverage += 5 if z_party_leader == "Joos"; in_weimar_coalition = 1; spd_in_government = 1; in_popular_front = 0; in_left_front = 0; foreign_minister_party = "Z"; interior_minister_party = "Z"; justice_minister_party = "DDP"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "DDP"; finance_minister_party = "Z"; agriculture_minister_party = "Z"; foreign_minister = "Wirth"; interior_minister = "Wirth"; justice_minister = "Koch-Weser"; labor_minister = "Stegerwald"; reichswehr_minister = "Groener"; economic_minister = "Dietrich"; finance_minister = "Köhler"; agriculture_minister = "Hermes";
 achievement: weimar_coalition
 
 We have enough votes to form a "Weimar Coalition" government consisting of the SPD, Center (Z) and Democratic (DDP) parties! This has been our preferred governing coalition since 1919.
@@ -942,7 +944,7 @@ There are enough votes to form a majority coalition consisting of the SPD, Cente
 
 @grand_coalition_z_lead_2
 
-The Center chancellor is likely to be Heinrich Brüning of the Center Party[? if chancellor = "Brüning" : again ?]. He is known for his conservatism and sympathy for monarchism, being on the right wing of the Center. [? if austerity >= 2 : Due to the government's austerity policies, many of our members are reluctant to participate in this coalition again. Some support a "toleration" arrangement in which we will provide outside support to prevent the far-right from either entering government or calling a successful no-confidence vote. Others support entering into pure opposition, and letting the right do what it wishes. ?]
+The Center chancellor is likely to be Heinrich Brüning of the Center Party [? if chancellor = "Brüning" : again. ?][? if chancellor != "Brüning": . ?] He is known for his conservatism and sympathy for monarchism, being on the right wing of the Center. [? if austerity >= 2 : Due to the government's austerity policies, many of our members are reluctant to participate in this coalition again. Some support a "toleration" arrangement in which we will provide outside support to prevent the far-right from either entering government or calling a successful no-confidence vote. Others support entering into pure opposition, and letting the right do what it wishes. ?]
 
 Brüning is not opposed to a coalition with us. Alternatively, we could enter a "toleration" agreement.
 
@@ -1335,14 +1337,14 @@ go-to: ministries
 @drop_finance
 title: Drop the Finance Ministry.
 view-if: finance_minister_party = "SPD"
-on-arrival: finance_minister_party = "DVP"; finance_minister = "Moldenhauer"; leverage += 10; finance_minister_party = "DDP" if in_weimar_coalition or in_popular_front;
+on-arrival: finance_minister_party = "DVP"; finance_minister = "Moldenhauer"; leverage += 10; finance_minister_party = "Z" if in_weimar_coalition or in_popular_front; finance_minister = "Köhler" if in_weimar_coalition or in_popular_front
 tags: drop_mins_1928
 go-to: ministries
 
 @drop_economic
 title: Drop the Economic Ministry.
 view-if: economic_minister_party = "SPD"
-on-arrival: economic_minister_party = "DVP"; economic_minister = "Curtius"; leverage += 10; economic_minister_party = "Z" if in_weimar_coalition or in_popular_front;
+on-arrival: economic_minister_party = "DVP"; economic_minister = "Curtius"; leverage += 10; economic_minister_party = "DDP" if in_weimar_coalition or in_popular_front; economic_minister = "Dietrich" if in_weimar_coalition or in_popular_front;
 tags: drop_mins_1928
 go-to: ministries
 
@@ -1356,14 +1358,14 @@ go-to: ministries
 @drop_foreign
 title: Drop the Foreign Ministry.
 view-if: foreign_minister_party = "SPD"
-on-arrival: foreign_minister_party = "DVP"; foreign_minister = "Stresemann"; foreign_minister = "Curtius" if streseman_dead; leverage += 10; foreign_minister_party = "Z" if in_weimar_coalition or in_popular_front;
+on-arrival: foreign_minister_party = "DVP"; foreign_minister = "Stresemann"; foreign_minister = "Curtius" if streseman_dead; leverage += 10; foreign_minister_party = "Z" if in_weimar_coalition or in_popular_front; foreign_minister = "Wirth" if in_weimar_coalition or in_popular_front;
 tags: drop_mins_1928
 go-to: ministries
 
 @drop_agriculture
 title: Drop the Agriculture Ministry.
 view-if: agriculture_minister_party = "SPD"
-on-arrival: agriculture_minister_party = "DDP"; agriculture_minister = "Dietrich"; leverage += 10;
+on-arrival: agriculture_minister_party = "DDP"; agriculture_minister = "Dietrich"; leverage += 10; agriculture_minister_party = "Z" if in_weimar_coalition; agriculture_minister = "Hermes" if in_weimar_coalition
 tags: drop_mins_1928
 go-to: ministries
 
